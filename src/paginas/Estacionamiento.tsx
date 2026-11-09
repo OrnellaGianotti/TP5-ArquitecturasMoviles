@@ -114,10 +114,12 @@ export default function Estacionamiento() {
                       <div>{estadoT === 'vencido' ? 'Tiempo vencido' : `Hasta las ${formatearHora(sesion.fin)} · pagaste ${formatearPesos(sesion.importe)}`}</div>
                     </div>
                     <IonProgressBar value={Math.max(0, restante / total)} color={estadoT === 'en_curso' ? 'primary' : 'warning'} style={{ margin: '10px 0' }} />
-                    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'center' }}>
-                      {[15, 30, 60].map((m) => (
-                        <IonButton key={m} size="small" disabled={procesando} onClick={() => ejecutar(() => estacionamientoApi.extender(sesion.id, m), `Extendiste ${m} minutos.`)}>
-                          <IonIcon icon={add} slot="start" />{m} min ({formatearPesos(calcularImporte(m))})
+                    {/* Se extiende de a fracciones completas (30 min): 15 min costaría lo mismo que 30. */}
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+                      {[30, 60].map((m) => (
+                        <IonButton key={m} size="small" style={{ margin: 0 }} disabled={procesando} onClick={() => ejecutar(() => estacionamientoApi.extender(sesion.id, m), `Extendiste ${m} minutos.`)}>
+                          <IonIcon icon={add} slot="start" />
+                          {m} min · {formatearPesos(calcularImporte(m))}
                         </IonButton>
                       ))}
                     </div>

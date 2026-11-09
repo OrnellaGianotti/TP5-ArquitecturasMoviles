@@ -8,6 +8,16 @@ ion-toolbar.sf-barra {
   --background: linear-gradient(120deg, #0b2a63 0%, #14467f 100%);
 }
 
+/* Sin MAYÚSCULAS forzadas en botones y pestañas: se leen mejor y no cortan palabras. */
+ion-button,
+ion-segment-button {
+  text-transform: none;
+  letter-spacing: normal;
+}
+ion-button {
+  font-weight: 600;
+}
+
 .sf-contenido {
   max-width: 720px;
   margin: 0 auto;
@@ -135,6 +145,10 @@ ion-toolbar.sf-barra {
 .sf-importe {
   font-size: 1.6rem;
   font-weight: 700;
+  color: var(--ion-text-color, #111);
+}
+ion-card[color] .sf-importe {
+  color: inherit;
 }
 .sf-nota {
   font-size: 0.78rem;
@@ -148,6 +162,7 @@ ion-toolbar.sf-barra {
   padding: 8px 0 4px;
 }
 .sf-temporizador .reloj {
+  color: var(--ion-text-color, #111);
   font-size: 2.8rem;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
@@ -212,11 +227,21 @@ ion-toolbar.sf-barra {
   height: 100%;
   object-fit: cover;
 }
-.sf-fotos ion-button {
+.sf-fotos .quitar {
   position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
+  top: 4px;
+  right: 4px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* Categorías de reclamo */

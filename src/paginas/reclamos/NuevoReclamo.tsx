@@ -100,7 +100,7 @@ export default function NuevoReclamo() {
     try {
       const r = await reclamosApi.crear({ categoria, motivo, descripcion, direccion, ubicacion: punto ?? undefined, adjuntos });
       avisar(`Reclamo enviado. Tu número es ${r.numero}.`, 'success');
-      history.replace(`/reclamos/${r.id}`);
+      history.replace(`/reclamos/ver/${r.id}`);
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -202,9 +202,9 @@ export default function NuevoReclamo() {
                 {fotos.map((f) => (
                   <div className="foto" key={f.nombre + f.miniatura?.length}>
                     <img src={f.miniatura} alt={`Foto adjunta ${f.nombre}`} />
-                    <IonButton size="small" color="dark" onClick={() => setAdjuntos((a) => a.filter((x) => x !== f))} aria-label={`Quitar ${f.nombre}`}>
-                      <IonIcon icon={close} />
-                    </IonButton>
+                    <button type="button" className="quitar" onClick={() => setAdjuntos((a) => a.filter((x) => x !== f))} aria-label={`Quitar ${f.nombre}`}>
+                      <IonIcon icon={close} aria-hidden="true" />
+                    </button>
                   </div>
                 ))}
               </div>

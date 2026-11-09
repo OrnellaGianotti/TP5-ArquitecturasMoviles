@@ -11,6 +11,8 @@ import '@ionic/react/css/typography.css';
 import '@ionic/react/css/padding.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
+/* Paleta oscura oficial de Ionic: se activa con la clase .ion-palette-dark en <html> */
+import '@ionic/react/css/palettes/dark.class.css';
 import './tema/variables.css';
 import './tema/app.css';
 
@@ -51,7 +53,7 @@ function Pestanias() {
         <Route exact path="/inicio/estacionamiento" component={Estacionamiento} />
         <Route exact path="/reclamos" component={Reclamos} />
         <Route exact path="/reclamos/nuevo" component={NuevoReclamo} />
-        <Route exact path="/reclamos/:id" component={DetalleReclamo} />
+        <Route exact path="/reclamos/ver/:id" component={DetalleReclamo} />
         <Route exact path="/avisos" component={Avisos} />
         <Route exact path="/avisos/:id" component={DetalleAviso} />
         <Route exact path="/perfil" component={Perfil} />

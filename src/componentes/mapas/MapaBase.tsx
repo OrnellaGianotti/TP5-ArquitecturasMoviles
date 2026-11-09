@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { CircleMarker, MapContainer, TileLayer, Tooltip, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Coordenada } from '../../api/tipos';
@@ -32,7 +32,20 @@ function Recentrar({ centro, zoom }: { centro?: Coordenada | null; zoom?: number
   return null;
 }
 
+/** Encuadra el mapa para que entren todos los puntos (solo la primera vez). */
+function Encuadrar({ puntos }: { puntos?: Coordenada[] }) {
+  const mapa = useMap();
+  const hecho = useRef(false);
+  useEffect(() => {
+    if (hecho.current || !puntos || puntos.length < 2) return;
+    hecho.current = true;
+    mapa.fitBounds(puntos.map((p) => [p.lat, p.lng] as [number, number]), { padding: [28, 28], maxZoom: 16 });
+  }, [mapa, puntos]);
+  return null;
+}
+
 interface Props {
+  encuadrar?: Coordenada[];
   children?: ReactNode;
   centro?: Coordenada;
   zoom?: number;
@@ -42,7 +55,7 @@ interface Props {
   etiqueta: string;
 }
 
-export default function MapaBase({ children, centro = CENTRO_SAN_FRANCISCO, zoom = 14, alto, ubicacionUsuario, enfocar, etiqueta }: Props) {
+export default function MapaBase({ children, centro = CENTRO_SAN_FRANCISCO, zoom = 14, alto, ubicacionUsuario, enfocar, etiqueta, encuadrar }: Props) {
   return (
     <div className={`sf-mapa${alto ? ' alto' : ''}`} role="region" aria-label={etiqueta}>
       <MapContainer center={[centro.lat, centro.lng]} zoom={zoom} style={{ height: '100%', width: '100%' }} scrollWheelZoom>
@@ -52,6 +65,7 @@ export default function MapaBase({ children, centro = CENTRO_SAN_FRANCISCO, zoom
           maxZoom={19}
         />
         <AjustarTamanio />
+        <Encuadrar puntos={encuadrar} />
         <Recentrar centro={enfocar} zoom={16} />
         {ubicacionUsuario && (
           <CircleMarker

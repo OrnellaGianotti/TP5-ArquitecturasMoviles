@@ -45,7 +45,7 @@ export default function Reclamos() {
             {datos?.map((r) => {
               const e = infoEstado(r.estado);
               return (
-                <IonItem key={r.id} button detail routerLink={`/reclamos/${r.id}`}>
+                <IonItem key={r.id} button detail routerLink={`/reclamos/ver/${r.id}`}>
                   <IonLabel className="ion-text-wrap">
                     <h3>{r.motivo}</h3>
                     <p>{r.categoria} · N° {r.numero}</p>

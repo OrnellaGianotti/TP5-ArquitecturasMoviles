@@ -63,7 +63,7 @@ export default function PasarelaPago({ abierta, concepto, importe, onCerrar, onC
               <IonItem key={m.id}>
                 <IonIcon icon={m.icono} slot="start" color="primary" aria-hidden="true" />
                 <IonRadio value={m.id} justify="space-between">
-                  <IonLabel>
+                  <IonLabel className="ion-text-wrap">
                     <h3>{m.id}</h3>
                     <p>{m.detalle}</p>
                   </IonLabel>

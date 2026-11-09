@@ -28,7 +28,7 @@ export default function ReportarBici() {
     try {
       const reclamo = await bicisApi.reportar(reporte);
       avisar(`Reporte enviado. Número de reclamo ${reclamo.numero}.`, 'success');
-      history.replace(`/reclamos/${reclamo.id}`);
+      history.replace(`/reclamos/ver/${reclamo.id}`);
     } catch (e) {
       setError((e as Error).message);
     } finally {

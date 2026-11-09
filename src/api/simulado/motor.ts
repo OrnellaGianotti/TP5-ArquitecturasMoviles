@@ -108,7 +108,7 @@ export function pasoReclamos(ahora = Date.now()): void {
       tipo: 'reclamo',
       titulo: `Reclamo ${r.numero}: ${etiquetaEstado(siguiente)}`,
       cuerpo: `${r.motivo} – ${DETALLE[siguiente]}`,
-      enlace: `/reclamos/${r.id}`,
+      enlace: `/reclamos/ver/${r.id}`,
     });
   }
   if (cambio) guardar();

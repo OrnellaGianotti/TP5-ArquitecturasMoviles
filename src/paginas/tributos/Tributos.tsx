@@ -69,7 +69,10 @@ export default function Tributos() {
               </IonCard>
 
               {datos.datos.obligaciones.map((o) => {
-                const propios = datos.datos!.cedulones.filter((c) => c.obligacionId === o.id && c.estado !== 'pagado');
+                // Primero el que vence antes: es el que conviene pagar.
+                const propios = datos.datos!.cedulones
+                  .filter((c) => c.obligacionId === o.id && c.estado !== 'pagado')
+                  .sort((a, b) => a.vencimiento1.localeCompare(b.vencimiento1));
                 return (
                   <IonCard key={o.id} style={{ margin: '0 0 14px' }}>
                     <IonCardHeader>

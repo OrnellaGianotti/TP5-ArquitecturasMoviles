@@ -95,7 +95,13 @@ export default function Inicio() {
               <IonIcon slot="start" icon={chatbubbleEllipses} color="primary" aria-hidden="true" />
               <IonLabel>
                 <h3>Reclamos en curso</h3>
-                <p>{resumen.datos ? `${resumen.datos.reclamosAbiertos} abiertos` : '—'}</p>
+                <p>
+                  {resumen.datos
+                    ? resumen.datos.reclamosAbiertos === 0
+                      ? 'Ninguno abierto'
+                      : `${resumen.datos.reclamosAbiertos} abierto${resumen.datos.reclamosAbiertos === 1 ? '' : 's'}`
+                    : '—'}
+                </p>
               </IonLabel>
             </IonItem>
             <IonItem button detail routerLink="/avisos">

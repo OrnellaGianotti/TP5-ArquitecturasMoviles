@@ -11,7 +11,7 @@ interface Props {
 
 export default function MapaAlarmas({ alarmas, ubicacion, radio }: Props) {
   return (
-    <MapaBase etiqueta="Mapa de alarmas comunitarias" zoom={14} alto ubicacionUsuario={ubicacion}>
+    <MapaBase etiqueta="Mapa de alarmas comunitarias" zoom={14} alto ubicacionUsuario={ubicacion} encuadrar={alarmas.map((a) => a.ubicacion)}>
       {ubicacion && (
         <Circle
           center={[ubicacion.lat, ubicacion.lng]}

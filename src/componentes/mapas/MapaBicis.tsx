@@ -12,7 +12,14 @@ interface Props {
 
 export default function MapaBicis({ estaciones, ubicacion, enfocar, onElegir }: Props) {
   return (
-    <MapaBase etiqueta="Mapa de estaciones de bicicletas" zoom={13} alto ubicacionUsuario={ubicacion} enfocar={enfocar}>
+    <MapaBase
+      etiqueta="Mapa de estaciones de bicicletas"
+      zoom={13}
+      alto
+      ubicacionUsuario={ubicacion}
+      enfocar={enfocar}
+      encuadrar={estaciones.map((e) => e.ubicacion)}
+    >
       {estaciones.map((e) => (
         <CircleMarker
           key={e.id}
