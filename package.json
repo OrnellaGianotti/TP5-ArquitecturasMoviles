@@ -1,0 +1,41 @@
+{
+  "name": "mi-sanfra",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Mi Sanfra: web mobile app (PWA) de servicios municipales de San Francisco. TP 5 - Arquitecturas Moviles, UTN FRSF.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ionic/react": "8.8.19",
+    "@ionic/react-router": "8.8.19",
+    "ionicons": "7.4.0",
+    "leaflet": "1.9.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-leaflet": "4.2.1",
+    "react-router": "5.3.4",
+    "react-router-dom": "5.3.4"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.3",
+    "@types/leaflet": "1.9.22",
+    "@types/react": "18.3.31",
+    "@types/react-dom": "18.3.7",
+    "@types/react-router-dom": "5.3.3",
+    "@vitejs/plugin-react": "4.7.0",
+    "jsdom": "26.1.0",
+    "typescript": "5.9.3",
+    "vite": "6.4.6",
+    "vite-plugin-pwa": "1.3.0",
+    "vitest": "3.2.7"
+  }
+}
