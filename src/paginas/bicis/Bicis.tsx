@@ -106,10 +106,7 @@ export default function Bicis() {
                     <IonIcon icon={bicycle} slot="start" style={{ color: colorDisponibilidad(e) }} aria-hidden="true" />
                     <IonLabel className="ion-text-wrap">
                       <h3>{e.nombre}</h3>
-                      <p>
-                        {e.direccion}
-                        {e.ubicacionAproximada && ' · ubicación aproximada'}
-                      </p>
+                      <p>{e.direccion}</p>
                       <p>
                         <IonNote>Actualizado {tiempoRelativo(e.actualizado)}</IonNote>
                       </p>

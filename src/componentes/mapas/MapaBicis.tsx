@@ -25,12 +25,6 @@ export default function MapaBicis({ estaciones, ubicacion, enfocar, onElegir }: 
             <strong>{e.nombre}</strong>
             <br />
             🚲 {e.bicisDisponibles} bicis · 🅿️ {e.anclajesLibres} anclajes libres
-            {e.ubicacionAproximada && (
-              <>
-                <br />
-                <em>Ubicación aproximada</em>
-              </>
-            )}
           </Popup>
         </CircleMarker>
       ))}

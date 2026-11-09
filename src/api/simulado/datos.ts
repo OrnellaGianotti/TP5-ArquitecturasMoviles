@@ -41,7 +41,7 @@ export const BARRIOS: { nombre: string; lat: number; lng: number }[] = [
 
 // ---------------- Bicicletas públicas: "San Francisco en Bici" ----------------
 // REAL: nombres de las 5 estaciones habilitadas (sanfrancisco.gov.ar). Coordenadas de
-// OpenStreetMap; el Sport Automóvil Club no figura en OSM y su ubicación es aproximada.
+// OpenStreetMap (Nominatim); la del Sport Automóvil Club, por su dirección (Av. Urquiza 599).
 // FICTICIO: capacidad y disponibilidad (en producción vendrían de los anclajes).
 const ahoraIso = () => new Date().toISOString();
 
@@ -51,7 +51,7 @@ export function estacionesIniciales(): EstacionBici[] {
     { id: 'est-terminal', nombre: 'Terminal de Ómnibus', direccion: 'Bv. 9 de Julio', lat: -31.42975, lng: -62.09164, cap: 14 },
     { id: 'est-tecnoteca', nombre: 'Tecnoteca San Francisco', direccion: 'Pasaje Prof. Cecil Newton, Centro Cívico', lat: -31.43043, lng: -62.08584, cap: 10 },
     { id: 'est-plaza-gral-paz', nombre: 'Plaza General Paz', direccion: 'Barrio Catedral', lat: -31.43511, lng: -62.08626, cap: 10 },
-    { id: 'est-sport', nombre: 'Sport Automóvil Club', direccion: 'Ubicación aproximada', lat: -31.4262, lng: -62.0760, cap: 8, aprox: true },
+    { id: 'est-sport', nombre: 'Sport Automóvil Club', direccion: 'Av. Urquiza 599, barrio Roca', lat: -31.42211, lng: -62.09578, cap: 8 },
   ];
   const disponibles = [7, 9, 3, 6, 2];
   return base.map((e, i) => ({
@@ -59,7 +59,6 @@ export function estacionesIniciales(): EstacionBici[] {
     nombre: e.nombre,
     direccion: e.direccion,
     ubicacion: { lat: e.lat, lng: e.lng },
-    ubicacionAproximada: e.aprox,
     capacidad: e.cap,
     bicisDisponibles: disponibles[i],
     bicisAdaptadas: i === 1 || i === 2 ? 1 : 0,

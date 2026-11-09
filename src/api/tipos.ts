@@ -12,7 +12,6 @@ export interface EstacionBici {
   nombre: string;
   direccion: string;
   ubicacion: Coordenada;
-  ubicacionAproximada?: boolean;
   capacidad: number;
   bicisDisponibles: number;
   bicisAdaptadas: number;
