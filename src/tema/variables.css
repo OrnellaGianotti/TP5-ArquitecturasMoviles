@@ -1,0 +1,60 @@
+/* Paleta de Mi Sanfra: azules tomados como referencia de la identidad digital municipal
+   (sin usar el escudo ni el logo oficial, porque es un prototipo académico). */
+:root {
+  --ion-color-primary: #0b3d91;
+  --ion-color-primary-rgb: 11, 61, 145;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #0a3680;
+  --ion-color-primary-tint: #23509c;
+
+  --ion-color-secondary: #1a8fd6;
+  --ion-color-secondary-rgb: 26, 143, 214;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #177ebc;
+  --ion-color-secondary-tint: #319ada;
+
+  --ion-color-success: #1f8a4c;
+  --ion-color-success-rgb: 31, 138, 76;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #1b7943;
+  --ion-color-success-tint: #35965e;
+
+  --ion-color-warning: #e8a317;
+  --ion-color-warning-rgb: 232, 163, 23;
+  --ion-color-warning-contrast: #1d1d1d;
+  --ion-color-warning-contrast-rgb: 29, 29, 29;
+  --ion-color-warning-shade: #cc8f14;
+  --ion-color-warning-tint: #eaac2e;
+
+  --ion-color-danger: #c62828;
+  --ion-color-danger-rgb: 198, 40, 40;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #ae2323;
+  --ion-color-danger-tint: #cc3e3e;
+
+  --ion-font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ion-background-color: #f4f6fb;
+  --ion-card-background: #ffffff;
+  --sf-borde: #e1e6f0;
+  --sf-texto-suave: #5b6476;
+}
+
+/* Modo oscuro: se activa con la clase "ion-palette-dark" en <html> (ver Perfil). */
+.ion-palette-dark {
+  --ion-background-color: #10141c;
+  --ion-card-background: #1a2030;
+  --ion-item-background: #1a2030;
+  --ion-toolbar-background: #0b2a63;
+  --ion-tab-bar-background: #151a26;
+  --sf-borde: #2a3247;
+  --sf-texto-suave: #9aa4b8;
+  --ion-color-primary: #5b8fe6;
+  --ion-color-primary-rgb: 91, 143, 230;
+  --ion-color-primary-contrast: #0b1020;
+  --ion-color-primary-shade: #507ecb;
+  --ion-color-primary-tint: #6b9ae9;
+}

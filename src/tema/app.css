@@ -1,0 +1,330 @@
+/* Estilos propios de Mi Sanfra (lo que no resuelven los componentes de Ionic). */
+
+ion-toolbar.sf-barra {
+  --background: linear-gradient(120deg, #0b3d91 0%, #1a6fc2 100%);
+  --color: #fff;
+}
+.ion-palette-dark ion-toolbar.sf-barra {
+  --background: linear-gradient(120deg, #0b2a63 0%, #14467f 100%);
+}
+
+.sf-contenido {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sf-saludo h1 {
+  margin: 4px 0 2px;
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+.sf-saludo p {
+  margin: 0;
+  color: var(--sf-texto-suave);
+}
+
+/* Grilla de servicios del inicio */
+.sf-grilla {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (min-width: 560px) {
+  .sf-grilla {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.sf-tarjeta-servicio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 14px;
+  min-height: 112px;
+  border-radius: 16px;
+  background: var(--ion-card-background);
+  border: 1px solid var(--sf-borde);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.sf-tarjeta-servicio:active {
+  transform: scale(0.97);
+}
+.sf-tarjeta-servicio:hover {
+  box-shadow: 0 4px 14px rgba(11, 61, 145, 0.12);
+}
+.sf-tarjeta-servicio .sf-icono {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  font-size: 22px;
+  color: #fff;
+}
+.sf-tarjeta-servicio strong {
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+.sf-tarjeta-servicio small {
+  color: var(--sf-texto-suave);
+  font-size: 0.78rem;
+  line-height: 1.25;
+}
+
+.sf-titulo-seccion {
+  margin: 22px 4px 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sf-texto-suave);
+  font-weight: 700;
+}
+
+/* Mapas */
+.sf-mapa {
+  height: 320px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--sf-borde);
+  z-index: 0;
+}
+.sf-mapa.alto {
+  height: 420px;
+}
+.leaflet-container {
+  font: inherit;
+}
+.sf-leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: 8px 4px 0;
+  font-size: 0.8rem;
+  color: var(--sf-texto-suave);
+}
+.sf-leyenda span::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background: var(--c);
+  vertical-align: middle;
+}
+
+/* Bloques de información */
+.sf-dato {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--sf-borde);
+  font-size: 0.92rem;
+}
+.sf-dato:last-child {
+  border-bottom: 0;
+}
+.sf-dato span:first-child {
+  color: var(--sf-texto-suave);
+}
+.sf-importe {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.sf-nota {
+  font-size: 0.78rem;
+  color: var(--sf-texto-suave);
+  margin: 8px 4px;
+}
+
+/* Temporizador del estacionamiento */
+.sf-temporizador {
+  text-align: center;
+  padding: 8px 0 4px;
+}
+.sf-temporizador .reloj {
+  font-size: 2.8rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+.sf-temporizador.por_vencer .reloj {
+  color: var(--ion-color-warning-shade);
+}
+.sf-temporizador.vencido .reloj {
+  color: var(--ion-color-danger);
+}
+
+/* Línea de tiempo del reclamo */
+.sf-linea-tiempo {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 8px;
+}
+.sf-linea-tiempo li {
+  position: relative;
+  padding: 0 0 18px 22px;
+  border-left: 2px solid var(--sf-borde);
+}
+.sf-linea-tiempo li:last-child {
+  border-left-color: transparent;
+}
+.sf-linea-tiempo li::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ion-color-primary);
+}
+.sf-linea-tiempo li.pendiente::before {
+  background: var(--sf-borde);
+}
+.sf-linea-tiempo strong {
+  display: block;
+}
+.sf-linea-tiempo small {
+  color: var(--sf-texto-suave);
+}
+
+/* Fotos adjuntas */
+.sf-fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 8px;
+}
+.sf-fotos .foto {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--sf-borde);
+}
+.sf-fotos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sf-fotos ion-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
+/* Categorías de reclamo */
+.sf-categorias {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.sf-categoria {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--sf-borde);
+  background: var(--ion-card-background);
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+}
+.sf-categoria ion-icon {
+  font-size: 22px;
+  color: var(--ion-color-primary);
+  flex-shrink: 0;
+}
+.sf-categoria.activa {
+  border-color: var(--ion-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--ion-color-primary-rgb), 0.25);
+}
+
+/* Cedulón imprimible */
+.sf-cedulon {
+  border: 2px solid var(--ion-color-primary);
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  color: #111;
+}
+.sf-cedulon h2 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+.sf-codigo-barras {
+  display: block;
+  width: 100%;
+  height: 64px;
+  margin-top: 12px;
+}
+.sf-codigo-texto {
+  font-family: ui-monospace, Consolas, monospace;
+  letter-spacing: 0.12em;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.sf-marca-agua {
+  text-align: center;
+  font-size: 0.72rem;
+  color: #a33;
+  margin-top: 6px;
+}
+
+.sf-vacio {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--sf-texto-suave);
+}
+.sf-vacio ion-icon {
+  font-size: 48px;
+  opacity: 0.6;
+}
+
+.sf-pasos {
+  display: flex;
+  gap: 6px;
+  margin: 4px 0 16px;
+}
+.sf-pasos span {
+  flex: 1;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--sf-borde);
+}
+.sf-pasos span.hecho {
+  background: var(--ion-color-secondary);
+}
+
+.sf-banner-demo {
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 4px 8px;
+  background: #fff4d6;
+  color: #6b4e00;
+}
+.ion-palette-dark .sf-banner-demo {
+  background: #3a3010;
+  color: #f3d98a;
+}
+
+@media print {
+  ion-header,
+  ion-tab-bar,
+  .no-imprimir {
+    display: none !important;
+  }
+  .sf-cedulon {
+    border-color: #000;
+  }
+}
